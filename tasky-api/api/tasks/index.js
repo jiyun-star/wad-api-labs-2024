@@ -10,15 +10,10 @@ router.get('/', (req, res) => {
     res.json(tasksData);
 });
 
-router.get('/:id', (req, res) => {
-    const { id } = req.params
-    const task = tasksData.tasks.find(task => task.id === id);
-    if (!task) {
-        return res.status(404).json({ status: 404, message: 'Task not found' });
-    }
-    return res.status(200).json(task);
+router.get('/', async (req, res) => {
+    const tasks = await Task.find().populate('userId', 'username');
+    res.status(200).json(tasks);
 });
-
 router.post('/', asyncHandler(async (req, res) => {
     const task = await Task(req.body).save();
     res.status(201).json(task);
