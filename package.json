@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js",
-"dev": "babel-node ./initialise-dev/initDevDB.js && nodemon --exec npm start"
+    "dev": "babel-node ./initialise-dev/initDevDB.js && nodemon --exec npm start"
   },
   "author": "jiyun kwon",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-async-handler": "^1.2.0",
-    "mongoose": "^8.9.3"
+    "mongoose": "^8.9.3",
+    "node-fetch": "^2.7.0"
   }
 }
